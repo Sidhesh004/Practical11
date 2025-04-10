@@ -1,0 +1,64 @@
+class Student {
+    static int count = 0;
+    String name, branch, dob;
+
+    Student(String name, String branch, String dob) {
+        this.name = name;
+        this.branch = branch;
+        this.dob = dob;
+        count++;
+    }
+
+    public String toString() {
+        return "Name: " + name + "\nBranch: " + branch + "\nDOB: " + dob;
+    }
+}
+
+class RegularStudent extends Student {
+    static int count = 0;
+    double mhcetScore;
+
+    RegularStudent(String name, String branch, String dob, double mhcetScore) {
+        super(name, branch, dob);
+        this.mhcetScore = mhcetScore;
+        count++;
+    }
+
+    public String toString() {
+        return super.toString() + "\nMHCET Score: " + mhcetScore;
+    }
+}
+
+class DSYStudent extends Student {
+    static int count = 0;
+    double diplomaScore;
+
+    DSYStudent(String name, String branch, String dob, double diplomaScore) {
+        super(name, branch, dob);
+        this.diplomaScore = diplomaScore;
+        count++;
+    }
+
+    public String toString() {
+        return super.toString() + "\nDiploma Score: " + diplomaScore;
+    }
+}
+
+public class Practical11 {
+    public static void main(String[] args) {
+        RegularStudent rpm = new RegularStudent("Palash", "IT", "2003-08-12", 95.5);
+        DSYStudent amf = new DSYStudent("Pratik", "IT", "2002-05-12", 95.5);
+
+        System.out.println("Total Number of Students: " + Student.count);
+        System.out.println("Total Number of Regular Students: " + RegularStudent.count);
+        System.out.println("Total Number of DSY Students: " + DSYStudent.count);
+        System.out.println(amf);
+        System.out.println("------------------------");
+
+        RegularStudent bss = new RegularStudent("Sidhesh", "IT", "2003-11-03", 95.3);
+        System.out.println("Total Number of Students: " + Student.count);
+        System.out.println("Total Number of Regular Students: " + RegularStudent.count);
+        System.out.println("Total Number of DSY Students: " + DSYStudent.count);
+        System.out.println(bss);
+    }
+}
